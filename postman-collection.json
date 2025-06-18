@@ -1,0 +1,389 @@
+{
+  "info": {
+    "name": "Split App Backend APIs",
+    "description": "Complete API collection for Split App Backend - Expense splitting and settlement system",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "📁 Expense Management",
+      "item": [
+        {
+          "name": "List All Expenses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/expenses",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses"]
+            },
+            "description": "Retrieve all expenses in the system"
+          }
+        },
+        {
+          "name": "Add Expense - Dinner (₹600, paid by Shantanu)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 600.00,\n  \"description\": \"Dinner at restaurant\",\n  \"paidBy\": \"Shantanu\",\n  \"involvedPeople\": [\"Shantanu\", \"Sanket\", \"Om\"],\n  \"shareType\": \"EQUAL\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/expenses",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses"]
+            },
+            "description": "Add a new dinner expense paid by Shantanu, split equally among 3 people"
+          }
+        },
+        {
+          "name": "Add Expense - Groceries (₹450, paid by Sanket)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 450.00,\n  \"description\": \"Groceries for the week\",\n  \"paidBy\": \"Sanket\",\n  \"involvedPeople\": [\"Shantanu\", \"Sanket\", \"Om\"],\n  \"shareType\": \"EQUAL\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/expenses",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses"]
+            },
+            "description": "Add groceries expense paid by Sanket"
+          }
+        },
+        {
+          "name": "Add Expense - Petrol (₹300, paid by Om)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 300.00,\n  \"description\": \"Petrol for road trip\",\n  \"paidBy\": \"Om\",\n  \"involvedPeople\": [\"Shantanu\", \"Sanket\", \"Om\"],\n  \"shareType\": \"EQUAL\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/expenses",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses"]
+            },
+            "description": "Add petrol expense paid by Om"
+          }
+        },
+        {
+          "name": "Add Expense - Movie Tickets (₹500, paid by Shantanu)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 500.00,\n  \"description\": \"Movie tickets\",\n  \"paidBy\": \"Shantanu\",\n  \"involvedPeople\": [\"Shantanu\", \"Sanket\", \"Om\"],\n  \"shareType\": \"EQUAL\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/expenses",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses"]
+            },
+            "description": "Add movie tickets expense paid by Shantanu"
+          }
+        },
+        {
+          "name": "Add Expense - Pizza (₹280, paid by Sanket)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 280.00,\n  \"description\": \"Pizza delivery\",\n  \"paidBy\": \"Sanket\",\n  \"involvedPeople\": [\"Shantanu\", \"Sanket\", \"Om\"],\n  \"shareType\": \"EQUAL\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/expenses",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses"]
+            },
+            "description": "Add pizza expense paid by Sanket"
+          }
+        },
+        {
+          "name": "Get Expense by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/expenses/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses", "1"]
+            },
+            "description": "Get a specific expense by its ID"
+          }
+        },
+        {
+          "name": "Update Expense - Change Petrol to ₹350",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 350.00,\n  \"description\": \"Petrol for road trip (updated)\",\n  \"paidBy\": \"Om\",\n  \"involvedPeople\": [\"Shantanu\", \"Sanket\", \"Om\"],\n  \"shareType\": \"EQUAL\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/expenses/3",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses", "3"]
+            },
+            "description": "Update the petrol expense amount from ₹300 to ₹350"
+          }
+        },
+        {
+          "name": "Delete Expense - Remove Pizza",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/expenses/5",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses", "5"]
+            },
+            "description": "Delete the pizza expense"
+          }
+        }
+      ],
+      "description": "All expense management operations"
+    },
+    {
+      "name": "📁 Settlements & People",
+      "item": [
+        {
+          "name": "Get All People",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/people",
+              "host": ["{{baseUrl}}"],
+              "path": ["people"]
+            },
+            "description": "Get all people derived from expenses (should show: Shantanu, Sanket, Om)"
+          }
+        },
+        {
+          "name": "Get Current Balances",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/balances",
+              "host": ["{{baseUrl}}"],
+              "path": ["balances"]
+            },
+            "description": "Get each person's balance showing total paid, total owed, and net balance"
+          }
+        },
+        {
+          "name": "Get Settlement Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/settlements",
+              "host": ["{{baseUrl}}"],
+              "path": ["settlements"]
+            },
+            "description": "Get optimized settlement transactions showing who should pay whom and how much"
+          }
+        }
+      ],
+      "description": "Settlement calculations and people management"
+    },
+    {
+      "name": "📁 Edge Cases & Validation",
+      "item": [
+        {
+          "name": "Add Expense - Invalid (negative amount)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": -100.00,\n  \"description\": \"Invalid negative amount\",\n  \"paidBy\": \"Shantanu\",\n  \"involvedPeople\": [\"Shantanu\", \"Sanket\"],\n  \"shareType\": \"EQUAL\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/expenses",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses"]
+            },
+            "description": "Test validation - should fail with negative amount"
+          }
+        },
+        {
+          "name": "Add Expense - Invalid (empty description)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 100.00,\n  \"description\": \"\",\n  \"paidBy\": \"Shantanu\",\n  \"involvedPeople\": [\"Shantanu\", \"Sanket\"],\n  \"shareType\": \"EQUAL\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/expenses",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses"]
+            },
+            "description": "Test validation - should fail with empty description"
+          }
+        },
+        {
+          "name": "Add Expense - Invalid (missing paid_by)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 100.00,\n  \"description\": \"Test expense\",\n  \"paidBy\": \"\",\n  \"involvedPeople\": [\"Shantanu\", \"Sanket\"],\n  \"shareType\": \"EQUAL\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/expenses",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses"]
+            },
+            "description": "Test validation - should fail with missing paid_by"
+          }
+        },
+        {
+          "name": "Update Non-existent Expense",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 100.00,\n  \"description\": \"Updated expense\",\n  \"paidBy\": \"Shantanu\",\n  \"involvedPeople\": [\"Shantanu\"],\n  \"shareType\": \"EQUAL\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/expenses/999",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses", "999"]
+            },
+            "description": "Test error handling - should return 404 for non-existent expense"
+          }
+        },
+        {
+          "name": "Delete Non-existent Expense",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/expenses/999",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses", "999"]
+            },
+            "description": "Test error handling - should return 404 for non-existent expense"
+          }
+        },
+        {
+          "name": "Add Expense - Percentage Split",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 1000.00,\n  \"description\": \"Rent - percentage split\",\n  \"paidBy\": \"Shantanu\",\n  \"involvedPeople\": [\"Shantanu\", \"Sanket\", \"Om\"],\n  \"shareType\": \"PERCENTAGE\",\n  \"shares\": {\n    \"Shantanu\": 50.00,\n    \"Sanket\": 30.00,\n    \"Om\": 20.00\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/expenses",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses"]
+            },
+            "description": "Test percentage-based expense splitting"
+          }
+        },
+        {
+          "name": "Add Expense - Exact Amount Split",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 1000.00,\n  \"description\": \"Shopping - exact amounts\",\n  \"paidBy\": \"Sanket\",\n  \"involvedPeople\": [\"Shantanu\", \"Sanket\", \"Om\"],\n  \"shareType\": \"EXACT_AMOUNT\",\n  \"shares\": {\n    \"Shantanu\": 400.00,\n    \"Sanket\": 350.00,\n    \"Om\": 250.00\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/expenses",
+              "host": ["{{baseUrl}}"],
+              "path": ["expenses"]
+            },
+            "description": "Test exact amount-based expense splitting"
+          }
+        }
+      ],
+      "description": "Edge cases and validation testing"
+    }
+  ]
+}

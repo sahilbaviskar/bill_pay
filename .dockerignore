@@ -1,0 +1,29 @@
+# Git
+.git
+.gitignore
+
+# Maven
+target/
+!target/split-app-backend-0.0.1-SNAPSHOT.jar
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Documentation
+README.md
+postman-collection.json
+
+# Batch files
+*.bat
+
+# Other
+.qodo/

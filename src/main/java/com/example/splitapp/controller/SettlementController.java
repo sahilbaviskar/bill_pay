@@ -1,4 +1,4 @@
-package com.example.splitapp.controller;
+docker build -t split-app-backend:latest .package com.example.splitapp.controller;
 
 import com.example.splitapp.dto.ApiResponse;
 import com.example.splitapp.dto.BalanceDto;

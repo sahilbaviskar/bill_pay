@@ -21,6 +21,7 @@ Thumbs.db
 # Documentation
 README.md
 postman-collection.json
+docker-compose.yml
 
 # Batch files
 *.bat
